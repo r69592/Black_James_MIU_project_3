@@ -267,7 +267,178 @@ Term  : 1306
 
 </div>
 
+          <div data-role="page" id="addItem" >
+
+      <div data-role="header" data-position="fixed" data-theme="a">
+          <div id="headerBg">
+          <h1 class="font" >Chore List</h1>
+          <br />
+          
+
+          <!-- This is my link section! -->
+          <div data-role="navbar" data-theme="a">
+            <ul>
+              <li><a href="#" id="clearStorage">
+              Clear Data
+              </a></li>
+            
+              <li><a href="#" id="displayData">
+              Display Data
+              </a></li>
+            
+              <li><a href="additem.html" id="addNewChore">
+              New Item
+              </a></li>
+            </ul>
+          </div>
+          </div>  
+      </div>
+
+      <!-- .............................. -->
+          
+         
+      <!-- This starts my form with all buttons,radios,selectBox,etc. -->
+      <div data-role="content">    
+          <form action="#" method="post" id="choreForm" >
+            
+              <legend>
+                Chore Information
+              </legend>
+              
+              
+                 <h4>
+                  <span>*</span> 
+                  fields are required
+                </h4>
+                <ul id="errors"></ul>
+            
+              <!-- ........ -->
+              <div data-role="fieldcontain" >
+              <ul id="choreList">
+
+                
+                <label for="chore"><span>*</span> Description:</label>
+                <input type="text" id="chore" placeholder="Type text here" data-clear-btn="true" data-theme="a" /><p class="inputHints">Example: Wash clothes</p>
+                <br />
+
+                <!-- This is my drop down field -->
+            <div data-role="fieldcontain">
+              <label for="area" id="select" ><span>*</span> Select A Chore Type:</label>
+              <select name="myChoreList" id="area" data-native-menu="false" class="required" data-theme="a">
+                <option data-placeholder="true">-- Please Choose A Chore --</option>
+                  <option value="laundry" >Laundry</option>
+                  <option value="kitchen" >kitchen</option>
+                  <option value="bathroom" >bathroom</option>
+                  <option value="living room" >living room</option>
+                  <option value="bedroom" >bedroom</option>
+                  <option value="yard" >yard</option>
+              </select>
+
+            </div>
+
+                <!--label for="area" id="select1"><span>*</span> Select A Chore Type:</label>
+              </ul>
+              </div-->
+              <!-- ........ -->
+            
+              <legend>
+                Questions
+              </legend>
+
+              <!-- ........ -->
+
+               <!-- This is my radio select field -->
+            <div data-role="fieldcontain" >
+              <fieldset data-role="controlgroup" >
+                <label >Difficulty</label>
+                  <input type="radio" value="easy" name="difficulty" id="easy"  data-theme="a"/>
+                  <label for="easy">Easy</label>
+                  <input type="radio" value="medium" name="difficulty" id="medium" data-theme="a" />
+                  <label for="medium">Medium</label>
+                  <input type="radio" value="hard" name="difficulty" id="hard" data-theme="a" />
+                  <label for="hard">hard</label>
+              </fieldset>
+            </div>
+
+          
+              <!-- ........ -->
+               <!-- This is my range field -->
+            <div data-role="fieldcontain">
+              <label for="Iportant">Importance</label>
+              <input type="range" name="importance" id="importance" value="0" min="0" max="50" data-theme="a" />
+            </div>
+
+            
+
+              <!-- .... Completion Date .... -->
+            <div data-role="fieldcontain" >
+              <label for="choreDate">Completion Date</label>
+              <input type="date" id="choreDate" data-theme="a" />
+            </div>
+              <!-- ........ -->
+
+
+              <!-- This is my text field --> 
+            <div data-role="fieldcontain" >
+              <label for="notes" >Notes</label>
+              <textarea data-theme="a" id="notes" placeholder="Any memo's about your chore goes here."></textarea>
+              <p class="inputHints">Example: There is 2 loads that need to be washed.</p>
+            </div>
+
+
+              <!-- ........ -->
+              <div data-role="fieldcontain" >
+              
+                <input type="button" id="saveButton" value="Save" data-theme="a" />
+
+                <input type="reset" value="Reset" data-theme="b" />
+              
+            
+            </div>
+            
+            <!--input type="button" id="saveButton" /-->
+
+
+
+          </form>
+      </div>
+
+
+      <!-- ................................ -->
+
+      <div data-role="footer" data-position="fixed" >
+        <footer>  
+
+         <div data-role="navbar" data-theme="a">
+          <ul>
+            <li>
+              <a href="index.html" data-icon="home" >
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#github" data-icon="star"  >
+                Info
+              </a>
+            </li>
+            <li>
+              <a href="#about" data-icon="info" >
+                About
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div> 
+        </footer>
+      </div>
+        
+    </div>
+
+    <div data-role="page" id="results" data-native-menu="false">
+
       
+
+    </div>
     
     
     
@@ -280,9 +451,7 @@ Term  : 1306
     </script>
     <script src="js/json.js" type="text/javascript">
     </script>
-    <script src="js/test.js" type="text/javascript">
-    </script>
-    <script src="js/main.js" type="text/javascript">
+    <script src="js/Sample-main.js" type="text/javascript">
     </script>
     
   </body>
