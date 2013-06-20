@@ -1,0 +1,32 @@
+/*
+
+Search.html Style sheet
+Created By James Black
+MIU: 1306
+
+*/
+
+/* CSS RESET */
+html,img,body,div,span,h1,p,a,em,ul,li,fieldset,form,label,legend,article,header{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,header{display:block}body{line-height:1}ol,ul{list-style:none}
+
+
+div.ui-content-background-color {
+	background-color: #595c66;
+	
+	color: White;
+}
+
+#errors li, .errors  {
+	color: red;
+	font-size: 16px;
+}
+
+
+
+
+.ui-content-about {
+	color: black;
+}
+
+
+
