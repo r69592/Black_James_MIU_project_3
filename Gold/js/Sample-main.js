@@ -7,19 +7,10 @@ $('#home').on('pageinit', function(){
         return elementId;
     }
 
-
-    var reload = function () {
-        var results = ge("results");
-        if (results.length >= 0){
-            window.location.reload();
-            
-        }
-    };
-
     // My array for dropdown menu.
     var myTypeArray = ["--Choose A Location--", "laundry", "kitchen", "bathroom", "living room", "bedroom", "yard"],
         difficultyValue,
-        errMsg = ge("errors");;
+        errMsg = ge("errors");
     
  
     // Search
@@ -31,12 +22,7 @@ $('#home').on('pageinit', function(){
     var searchButton6 = ge("searchButton6");
 
     var searchButton = ge("searchButton");
-    //var button1 = ["laundry", "kitchen", "bathroom", "living room", "bedroom", "yard"];
-    //var button2 = "kitchen";
-    //var button3 = "bathroom";
-    //var button4 = "living room";
-    //var button5 = "bedroom";
-    //var button6 = "yard";
+  
 
 
     var getSearch = function () {
@@ -44,7 +30,7 @@ $('#home').on('pageinit', function(){
         var term = ge("searchTerm").value; 
   
         // Search by term
-        if (term != "") {
+        if (term !== "") {
             var makeList = document.createElement("ul");
             document.getElementById("results").appendChild(makeList);
             for (var i = 0, len = localStorage.length; i < len; i++) {
@@ -263,7 +249,13 @@ $('#home').on('pageinit', function(){
 		
 $('#addItem').on('pageinit', function(){
 
-		var myForm = $('#choreForm');
+    // My get id function.
+    function ge(x) {
+        var elementId = document.getElementById(x);
+        return elementId;
+    }
+
+		var myForm = $('#formId');
 		    myForm.validate({
 			invalidHandler: function(form, validator) {
 			},
@@ -271,116 +263,13 @@ $('#addItem').on('pageinit', function(){
 		var data = myForm.serializeArray();
 			storeData(data);
 		}
+  
+    
 	});
 	
 	//any other code needed for addItem page goes here
 
-	 // My edit item link function....
-
-    function editItem() {
-        var value = localStorage.getItem(this.key);
-        var item = JSON.parse(value);
-
-        
-
-        // Get Elements By Id....
-        ge("chore").value = item.chore[1];
-        ge("area").value = item.area[1];
-
-        var radios = document.forms[0].difficulty;
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].value == "Easy" && item.difficulty[1] == "Easy") {
-                radios[i].setAttribute("checked", "checked");
-            } else if (radios[i].value == "Medium" && item.difficulty[1] == "Medium") {
-                radios[i].setAttribute("checked", "checked");
-            } else if (radios[i].value == "Hard" && item.difficulty[1] == "Hard") {
-                radios[i].setAttribute("checked", "checked");
-            }
-        }
-        ge("importance").value = item.importance[1];
-        ge("choreDate").value = item.choreDate[1];
-        ge("notes").value = item.notes[1];
-
-        //remove listener.
-        saveButton.removeEventListener("click", saveData);
-        ge("saveButton").value = "Edit Chore";
-        var editSubmit = ge("saveButton");
-        editSubmit.addEventListener("click", validate);
-        editSubmit.key = this.key;
-    }
-
-    // Make Item Links.
-
-    function makeItemLinks(key, linksLi) {
-        var editLink = document.createElement("a");
-        editLink.href = "#";
-        editLink.key = key;
-        var editText = "Edit Chore";
-        editLink.addEventListener("click", editItem);
-        editLink.innerHTML = editText;
-        linksLi.appendChild(editLink);
-
-        var breakTag = document.createElement("br");
-        linksLi.appendChild(breakTag);
-
-        var deleteLink = document.createElement("a");
-        deleteLink.href = "#";
-        deleteLink.key = key;
-        var deleteText = "Delete Chore";
-        deleteLink.addEventListener("click", deleteItem);
-        deleteLink.innerHTML = deleteText;
-        linksLi.appendChild(deleteLink);
-
-    }
-
-    // Get image for each location.
-
-    function getImage(catName, makeSublist) {
-        var imageLi = document.createElement("li");
-        makeSublist.appendChild(imageLi);
-        var newImage = document.createElement("img");
-        var setSrc = newImage.setAttribute("src", "images/" + catName + ".png");
-        imageLi.appendChild(newImage);
-    }
-
-     // Get radio answer function.         
-
-    function getSelectedRadio() {
-        var radios = document.forms[0].difficulty;
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                difficultyValue = radios[i].value;
-            }
-        }
-    }
-
-      // Make Select Field With js.
-
-    function makeField() {
-        var formTag = ge("form"),
-        selectLi = ge("select"),
-        makeSelect = document.createElement("select");
-        makeSelect.setAttribute("id", "area");
-        makeSelect.setAttribute("class", "required");
-        makeSelect.setAttribute("data-native-menu", "false");
-            for (var i = 0, j = myTypeArray.length; i < j; i++) {
-                var makeOption = document.createElement("option");
-                var optText = myTypeArray[i];
-                makeOption.setAttribute("value", optText);
-                makeOption.innerHTML = optText;
-                makeSelect.appendChild(makeOption);
-            }
-            selectLi.appendChild(makeSelect);
-    }
-
-
-     // My array for dropdown menu.
-    var myTypeArray = ["--Choose A Location--", "laundry", "kitchen", "bathroom", "living room", "beddroom", "yard"],
-        difficultyValue,
-        errMsg = ge("errors");;
-    makeField();
-	
-});
+    
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
